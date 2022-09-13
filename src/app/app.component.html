@@ -74,6 +74,34 @@
   <button [disabled]="buttonDisabled">Btn status with property binding</button>
   <button (click)="toggleButtonStatus()">Toggle btn status</button>
 
+  <h2>Attributes directives</h2>
+  <p [ngClass]="{'highlight': buttonDisabled}">Apply some classes with ngClass</p>
+  <p [ngClass]="{'hide': buttonDisabled}">Apply some classes with ngClass</p>
+
+  <h2 #h2Title>Template variables</h2>
+  <p>Use my template variable h2Title : {{ h2Title.innerText }}</p>
+
+  <h2>Structural directives</h2>
+  <h3>*ngIf</h3>
+  <ng-container *ngIf="buttonDisabled else elseTemplate">
+    <p>Display according to button status</p>
+  </ng-container>
+  <ng-template #elseTemplate>
+    Else template
+  </ng-template>
+
+  <ng-template [ngIf]="buttonDisabled">
+    <p>Display according to button status</p>
+    <p>Display according to button status</p>
+    <p>Display according to button status</p>
+    <!-- ... -->
+  </ng-template>
+
+  <h3>*ngFor</h3>
+  <ul>
+    <li *ngFor="let w of words">{{ w }}</li>
+  </ul>
+
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

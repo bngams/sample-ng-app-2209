@@ -13,6 +13,12 @@ export class AppComponent {
   buttonDisabled = false;
   iconBgColor = '#000';
 
+  words = [
+    'hello',
+    'world',
+    '!'
+  ]
+
 
   buttonClicked(): void {
     alert('Button clicked!');
