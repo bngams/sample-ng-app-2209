@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+  date = new Date();
+  imgUrl = 'https://picsum.photos/200';
+  imgDesc = 'Description';
+  buttonDisabled = false;
+  iconBgColor = '#000';
+
+
+  buttonClicked(): void {
+    alert('Button clicked!');
+  }
+
+  toggleButtonStatus(): void {
+    this.buttonDisabled = !this.buttonDisabled;
+  }
 }
