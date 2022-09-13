@@ -11,13 +11,51 @@ import { Component, Input, OnInit } from '@angular/core';
       />
       <span>{{ title }}</span>
       <div class="spacer"></div>
-      <!-- fontIcon = v14 -->
-      <mat-icon fontIcon="person">person</mat-icon>
+      <nav id="mainNav">
+        <ul>
+          <li>
+            <!-- complete syntax -->
+            <a [routerLink]="['/home']"
+              [routerLinkActive]="'current'">
+              Home
+            </a>
+          </li>
+          <li>
+            <!-- simple syntax -->
+            <a routerLink="/get-started"
+              routerLinkActive="current">
+              Get Started
+            </a>
+          </li>
+          <li>
+            <mat-icon fontIcon="person">person</mat-icon>
+          </li>
+        </ul>
+      </nav>
     </mat-toolbar>
   `,
   styles: [`
     .spacer {
       flex: 1;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+    }
+
+    li {
+      margin: 0 15px;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .current {
+      font-weight: bolder;
+      text-decoration: underline;
     }
   `]
 })
