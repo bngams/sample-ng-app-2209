@@ -28,6 +28,20 @@ import { Component, Input, OnInit } from '@angular/core';
             </a>
           </li>
           <li>
+            <!-- simple syntax -->
+            <a routerLink="/admin/users"
+              routerLinkActive="current">
+              Users
+            </a>
+          </li>
+          <li>
+            <!-- simple syntax -->
+            <a routerLink="/admin/posts"
+              routerLinkActive="current">
+              Posts
+            </a>
+          </li>
+          <li>
             <mat-icon fontIcon="person">person</mat-icon>
           </li>
         </ul>
