@@ -1,0 +1,11 @@
+<form [formGroup]="userForm" (ngSubmit)="submit()" class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput name="email" type="email" formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput name="email" type="email" formControlName="email">
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="!userForm.valid">Submit</button>
+</form>

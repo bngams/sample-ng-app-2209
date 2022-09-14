@@ -12,6 +12,8 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { UIModule } from './ui.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    UIModule,
-    FormsModule, // template driven forms
-    ReactiveFormsModule, // reactive forms
+    HttpClientModule,
+    SharedModule
   ],
   exports: [],
   providers: [],
