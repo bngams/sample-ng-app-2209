@@ -10,6 +10,8 @@ import { GetStartedComponent } from './components/pages/get-started/get-started.
 import { HomeComponent } from './components/pages/home/home.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { UIModule } from './ui.module';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { UIModule } from './ui.module';
     HeaderComponent,
     GetStartedComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     UIModule,
+    FormsModule, // template driven forms
+    ReactiveFormsModule, // reactive forms
   ],
   exports: [],
   providers: [],

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -27,22 +28,28 @@ import { Component, Input, OnInit } from '@angular/core';
               Get Started
             </a>
           </li>
-          <li>
+          <li *ngIf="loggedIn">
             <!-- simple syntax -->
             <a routerLink="/admin/users"
               routerLinkActive="current">
               Users
             </a>
           </li>
-          <li>
+          <li *ngIf="loggedIn">
             <!-- simple syntax -->
             <a routerLink="/admin/posts"
               routerLinkActive="current">
               Posts
             </a>
           </li>
-          <li>
-            <mat-icon fontIcon="person">person</mat-icon>
+          <li *ngIf="!loggedIn">
+            <a routerLink="/login"
+              routerLinkActive="current">
+              <mat-icon fontIcon="person">person</mat-icon>
+            </a>
+          </li>
+          <li *ngIf="loggedIn">
+            <mat-icon fontIcon="logout" (click)="logout()">logout</mat-icon>
           </li>
         </ul>
       </nav>
@@ -76,11 +83,21 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input()
   title!: string;
+  loggedIn = false;
 
-  constructor() {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.subscribeToLoggedInObservable();
+  }
+
+  subscribeToLoggedInObservable(): void {
+    this.authService.loggedInObservable.subscribe((value) => this.loggedIn = value )
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 }
