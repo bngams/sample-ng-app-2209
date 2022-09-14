@@ -25,7 +25,14 @@ export class UserFormComponent implements OnInit {
   }
 
   submit() {
-    this.addUser.emit(this.userForm.value as User);
+    const u = this.userForm.value as User;
+    // trigger and propagate event
+    this.addUser.emit(u);
+    this.userForm.reset();
+    // reset all errors on form
+    Object.keys(this.userForm.controls).forEach(key => {
+      this.userForm.get(key)?.setErrors(null) ;
+    });
   }
 
 }
